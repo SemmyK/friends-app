@@ -1,11 +1,17 @@
 <% content_for :title, "New friend" %>
 
-<h1>New friend</h1>
 
-<%= render "form", friend: @friend %>
-
-<br>
-
-<div>
-  <%= link_to "Back to friends", friends_path %>
+<div class="mx-auto text-center">
+<div class="card mx-auto text-left w-50">
+  <div class="card-header">
+  <h1>Create New friend</h1>
+  </div>
+  <div class="card-body">
+   <%= render "form", friend: @friend %>
+  </div>
+  
 </div>
+   <%= link_to "Back to friends", friends_path, class:"btn btn-dark mt-4" %>
+</div>
+
+

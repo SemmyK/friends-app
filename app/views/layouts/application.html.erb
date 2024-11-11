@@ -26,9 +26,14 @@
   <body>
 
     <header>
-      <%= render "home/navbar" %>
+      <%= render "layouts/navbar" %>
     </header>
 
+    <% if notice %>
+      <%= render "layouts/alert" %>
+    <% end %>
+
+    
     <main class='mx-4 my-2'>
         <%= yield %>
     </main>

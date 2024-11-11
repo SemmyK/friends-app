@@ -1,27 +1,20 @@
-<div id="<%= dom_id friend %>">
-  <p>
-    <strong>First name:</strong>
-    <%= friend.first_name %>
-  </p>
+<div id="<%= dom_id friend %>" class="w-50">
 
-  <p>
-    <strong>Last name:</strong>
-    <%= friend.last_name %>
-  </p>
+<div class="card w-100">
+  <h3 class="card-header">
+    <%= friend.first_name %>  <%= friend.last_name %>
+  
+  </h3>
+  <div class="card-body">
+    <h5 class="card-title">  <%= friend.email %> </h5>
+    <p class="card-text">  <%= friend.phone %> </p>
+    <p class="card-text">  <%= friend.twitter %> </p>
 
-  <p>
-    <strong>Email:</strong>
-    <%= friend.email %>
-  </p>
-
-  <p>
-    <strong>Phone:</strong>
-    <%= friend.phone %>
-  </p>
-
-  <p>
-    <strong>Twitter:</strong>
-    <%= friend.twitter %>
-  </p>
+    <div class="d-flex flex-row  justify-content-around align-item-center">
+      <%= link_to "Edit this friend", edit_friend_path(@friend), class:"btn btn-secondary" %> 
+      <%= button_to "Destroy this friend", @friend, method: :delete, class:"btn btn-danger d-inline" %>
+    </div>
+  </div>
+</div>
 
 </div>
