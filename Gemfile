@@ -57,6 +57,7 @@ group :development do
   gem "web-console"
   gem "solargraph"
   gem "prettier"
+  gem "standard", ">= 1.35.1"
 end
 
 group :test do

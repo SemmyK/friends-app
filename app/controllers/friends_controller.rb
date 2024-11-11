@@ -1,5 +1,5 @@
 class FriendsController < ApplicationController
-  before_action :set_friend, only: %i[ show edit update destroy ]
+  before_action :set_friend, only: %i[show edit update destroy]
 
   # GET /friends or /friends.json
   def index
@@ -58,13 +58,14 @@ class FriendsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_friend
-      @friend = Friend.find(params.expect(:id))
-    end
 
-    # Only allow a list of trusted parameters through.
-    def friend_params
-      params.expect(friend: [ :first_name, :last_name, :email, :phone, :twitter ])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_friend
+    @friend = Friend.find(params.expect(:id))
+  end
+
+  # Only allow a list of trusted parameters through.
+  def friend_params
+    params.expect(friend: [:first_name, :last_name, :email, :phone, :twitter])
+  end
 end
