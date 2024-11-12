@@ -2,39 +2,47 @@
 
 <% content_for :title, "Friends" %>
 
-<div id="friends" class="table-responsive container">
-<table class="table table-bordered table-striped ">
-  <thead class="table-dark ">
-    <tr>
-      <th scope="col" colspan="2">Name</th>
-      <th scope="col" colspan="2">Email</th>
-      <th scope="col" colspan="2">Phone</th>
-      <th scope="col" colspan="2">Twitter</th>
-      <th scope="col" colspan="1"></th>
-    </tr>
-  </thead>
-  <tbody>
-   <% @friends.each do |friend| %>
-    <tr>
-      <td colspan="2">
-      <%= friend.first_name %>  <%= friend.last_name %>
-      </td>
-     <td colspan="2">
-      <%= friend.email %>
-      </td>
-      <td colspan="2">
-      <%= friend.phone %>
-      </td>
-      <td colspan="2">
-      <%= friend.twitter %>
-      </td>
-      <td colspan="1">
-        <%= link_to "See Details", friend, class:"btn btn-outline-secondary" %>
-      </td>
-    </tr>
-    <% end %>
-  </tbody>
-</table>
-</div>
+<% if @friends.present? %>
 
+    <div id="friends" class="table-responsive container">
+      
+    <table class="table table-bordered table-striped ">
+      <thead class="table-dark ">
+        <tr>
+          <th scope="col" colspan="2">Name</th>
+          <th scope="col" colspan="2">Email</th>
+          <th scope="col" colspan="2">Phone</th>
+          <th scope="col" colspan="2">Twitter</th>
+          <th scope="col" colspan="1"></th>
+        </tr>
+      </thead>
+      <tbody>
+      <% @friends.each do |friend| %>
+        <tr>
+          <td colspan="2">
+          <%= friend.first_name %>  <%= friend.last_name %>
+          </td>
+        <td colspan="2">
+          <%= friend.email %>
+          </td>
+          <td colspan="2">
+          <%= friend.phone %>
+          </td>
+          <td colspan="2">
+          <%= friend.twitter %>
+          </td>
+          <td colspan="1">
+            <%= link_to "See Details", friend, class:"btn btn-outline-secondary" %>
+          </td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+    </div>
+ <% else %>
 
+    <div class="mx-auto w-50 card text-center p-4 mt-4">
+      <h1>No friends to show</h1>
+    </div>
+
+<% end %>
