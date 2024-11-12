@@ -10,7 +10,7 @@
     <p class="card-text">  <%= friend.phone %> </p>
     <p class="card-text">  <%= friend.twitter %> </p>
 
-    <div class="d-flex flex-row  justify-content-around align-item-center">
+    <div class="d-flex flex-row justify-content-around align-item-center">
       <%= link_to "Edit this friend", edit_friend_path(@friend), class:"btn btn-secondary" %> 
       <%= button_to "Destroy this friend", @friend, method: :delete, class:"btn btn-danger d-inline" %>
     </div>
