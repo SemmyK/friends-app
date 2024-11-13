@@ -4,9 +4,13 @@ Rails.application.routes.draw do
 
   delete "users/sign_out", to: "devise/sessions#destroy", as: :custom_sign_out
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-  root "home#index"
-  get "/about", to: "about#index"
-  # get "/home", to: "home#index"
+  authenticated :user do
+    root to: "friends#index", as: :authenticated_root
+  end
+
+  # Define the root path for unauthenticated users (not signed in)
+  unauthenticated { root to: "home#index" }
+
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
   # Can be used by load balancers and uptime monitors to verify that the app is live.
   get "up" => "rails/health#show", :as => :rails_health_check
